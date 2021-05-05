@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class SongDomain {
+public class Song{
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -19,9 +19,9 @@ public class SongDomain {
 	private String genre;
 	private Long releaseYear;
 	
-	public SongDomain() {}
+	public Song() {}
 	
-	public SongDomain(Long id, String songName, String artistName, String labelName, String songKey, String genre,
+	public Song(Long id, String songName, String artistName, String labelName, String songKey, String genre,
 			Long releaseYear) {
 		super();
 		this.id = id;

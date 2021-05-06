@@ -3,9 +3,11 @@ package com.example.musicmanagement.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.stereotype.Service;
+
 import com.example.musicmanagement.domain.Song;
 import com.example.musicmanagement.repo.SongRepo;
-
+@Service
 public class SongServiceDB {
 
 	private SongRepo repo;

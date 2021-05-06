@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+
+
 
 @Entity
 public class Song{
@@ -12,7 +15,9 @@ public class Song{
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotNull(message = "You must enter a song name")
 	private String songName;
+
 	private String artistName;
 	private String labelName;
 	private String songKey;

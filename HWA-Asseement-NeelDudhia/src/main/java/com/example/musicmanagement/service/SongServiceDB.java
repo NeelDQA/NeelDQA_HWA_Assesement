@@ -65,7 +65,7 @@ public class SongServiceDB {
 
 	// READ BY ARTIST NAME
 
-	public Song getSongByArtistName(String artistName) {
+	public List<Song> getSongByArtistName(String artistName) {
 		return this.repo.findByartistName(artistName);
 	}
 
@@ -78,7 +78,7 @@ public class SongServiceDB {
 	
 	//READ BY GENRE
 	
-	public Song getSongByGenre(String genre) {
+	public List<Song> getSongByGenre(String genre) {
 		return this.repo.findBygenre(genre);
 		
 	}

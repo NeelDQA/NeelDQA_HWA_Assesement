@@ -2,7 +2,7 @@ package com.example.musicmanagement.controller;
 
 import java.util.List;
 
-import javax.websocket.server.PathParam;
+
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -35,7 +35,7 @@ public class SongController {
 
 	// READ
 
-	@GetMapping("getAll")
+	@GetMapping("/getAll")
 	public ResponseEntity<List<Song>> getSongs() {
 		return ResponseEntity.ok(this.service.getAll());
 	}
@@ -50,22 +50,22 @@ public class SongController {
 	// READ BY SONG NAME
 
 	@GetMapping("/getBySongName/{songName}")
-	public ResponseEntity<Song> getSongBySongName(@PathParam("songName") String songName) {
+	public ResponseEntity<Song> getSongBySongName(@PathVariable("songName") String songName) {
 		return ResponseEntity.ok(this.service.getSongBySongName(songName));
 
 	}
 	
 	//READ BY ARTIST NAME
 	
-	@GetMapping("/getByArtistName{artistName}")
-	public ResponseEntity<Song> getSongByArtistName(@PathParam("artistName") String artistName){
+	@GetMapping("/getByArtistName/{artistName}")
+	public ResponseEntity<List<Song>> getSongByArtistName(@PathVariable("artistName") String artistName){
 		return ResponseEntity.ok(this.service.getSongByArtistName(artistName));
 	}
 	
 	//READ BY GENRE
 	
-	@GetMapping("/getByGenre{genre}")
-	public ResponseEntity<Song> getSongByGenre(@PathParam("genre") String genre){
+	@GetMapping("/getByGenre/{genre}")
+	public ResponseEntity<List<Song>> getSongByGenre(@PathVariable("genre") String genre){
 		return ResponseEntity.ok(this.service.getSongByGenre(genre));
 	}
 	
@@ -77,7 +77,7 @@ public class SongController {
 	}
 	
 	//DELETE
-	@DeleteMapping("remove/{id}")
+	@DeleteMapping("/remove/{id}")
 	public ResponseEntity<Song> removeSong(@PathVariable Long id){
 		this.service.remove(id);
 		return new ResponseEntity<Song>(HttpStatus.NO_CONTENT);

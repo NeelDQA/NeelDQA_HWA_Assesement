@@ -17,7 +17,7 @@ public class Song{
 	
 	@NotNull(message = "You must enter a song name")
 	private String songName;
-
+	@NotNull(message = "You must enter an artist name")
 	private String artistName;
 	private String labelName;
 	private String songKey;
@@ -37,6 +37,19 @@ public class Song{
 		this.genre = genre;
 		this.releaseYear = releaseYear;
 	}
+	
+	public Song(@NotNull(message = "You must enter a song name") String songName,
+			@NotNull(message = "You must enter an artist name") String artistName, String labelName, String songKey,
+			String genre, Long releaseYear) {
+		super();
+		this.songName = songName;
+		this.artistName = artistName;
+		this.labelName = labelName;
+		this.songKey = songKey;
+		this.genre = genre;
+		this.releaseYear = releaseYear;
+	}
+
 	public Long getId() {
 		return id;
 	}

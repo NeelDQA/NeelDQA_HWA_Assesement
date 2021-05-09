@@ -1,0 +1,2 @@
+INSERT INTO `song`(`song_name`,`artist_name`,`label_name`,`song_key`,`genre`,`release_year`)VALUES('Teenage Birdsong','Four Tet','Text Records','Am','House','2019');
+INSERT INTO `song`(`song_name`,`artist_name`,`label_name`,`song_key`,`genre`,`release_year`)VALUES('Dust','Brame & Hamo','Feel My Bicep','Fm','House','2019');

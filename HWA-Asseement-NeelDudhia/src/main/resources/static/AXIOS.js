@@ -17,6 +17,7 @@ const yearHolder = document.querySelector("#modalYear");
 const genreHolder = document.querySelector("#modalGenre");
 const keyHolder = document.querySelector("#modalKey");
 
+// const createdAlert = document.querySelector("#created");
 
 
 const readAll = () => {
@@ -127,7 +128,16 @@ const create = () => {
         post("http://localhost:9092/create", songObj).
         then((response) => {
             console.log(response);
+          
+            createdAlert.setAttribute("class","alert alert-success");
+            createdAlert.innerHTML = "Song added!";
             window.location.reload();
+            // setTimeout(()=>{
+            //     createdAlert.removeAttribute("class");
+            //     createdAlert.innerHTML ="";
+            //     window.location.reload();
+
+            // },2000)
 
         }).
         catch((err) => console.log(err));

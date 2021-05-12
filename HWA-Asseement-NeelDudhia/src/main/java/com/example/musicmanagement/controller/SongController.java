@@ -80,6 +80,7 @@ public class SongController {
 	
 	//DELETE
 	@DeleteMapping("/remove/{id}")
+	@CrossOrigin
 	public ResponseEntity<Song> removeSong(@PathVariable Long id){
 		this.service.remove(id);
 		return new ResponseEntity<Song>(HttpStatus.NO_CONTENT);

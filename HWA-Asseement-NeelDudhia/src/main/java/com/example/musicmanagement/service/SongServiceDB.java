@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.example.musicmanagement.domain.Song;
+import com.example.musicmanagement.exceptions.SongNotFoundException;
 import com.example.musicmanagement.repo.SongRepo;
 @Service
 public class SongServiceDB {
@@ -32,17 +33,22 @@ public class SongServiceDB {
 
 	// READ BY ID
 
-	public Song getById(Long id) {
+	public Song getById(Long id) throws SongNotFoundException {
 		Optional<Song> optionalSong = this.repo.findById(id);
-		return optionalSong.get();
+		if( optionalSong.isPresent()) {
+			return optionalSong.get();}
+		else {
+			throw new SongNotFoundException();
+		}
 	}
-
+		
+	
 	// UPDATE
 
-	public Song update(Long id, Song song) {
+	public Song update(Long id, Song song) throws SongNotFoundException{
 		Optional<Song> existingOptional = this.repo.findById(id);
+		if( existingOptional.isPresent()) {
 		Song existing = existingOptional.get();
-
 		existing.setSongName(song.getSongName());
 		existing.setArtistName(song.getArtistName());
 		existing.setLabelName(song.getLabelName());
@@ -50,7 +56,12 @@ public class SongServiceDB {
 		existing.setReleaseYear(song.getReleaseYear());
 		existing.setGenre(song.getGenre());
 
-		return this.repo.saveAndFlush(existing);
+		return this.repo.saveAndFlush(existing);}
+		else {
+			throw new SongNotFoundException();
+		}
+
+		
 
 	}
 

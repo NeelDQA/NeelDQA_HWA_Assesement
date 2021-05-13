@@ -1,7 +1,6 @@
 package com.example.musicmanagement.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -64,7 +63,7 @@ public class SongServiceUnitTest {
 	}
 
 	@Test
-	void testReadById() {
+	void testReadById() throws Exception {
 
 		Song song = new Song(1L, "Teenage Birdsong", "Four Tet", "Text Records", "Am", "House", 2019L);
 
@@ -79,7 +78,7 @@ public class SongServiceUnitTest {
 	}
 
 	@Test
-	void testUpdate() {
+	void testUpdate() throws Exception {
 		final Long id = 1L;
 
 		Song song = new Song(1L, "Teenage Birdsong", "Four Tet", "Text Records", "Am", "House", 2019L);

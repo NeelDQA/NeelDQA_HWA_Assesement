@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.musicmanagement.domain.Song;
+import com.example.musicmanagement.exceptions.SongNotFoundException;
 import com.example.musicmanagement.service.SongServiceDB;
 
 @RestController
@@ -31,8 +32,8 @@ public class SongController {
 	// CREATE
 
 	@PostMapping("/create")
-	public ResponseEntity<Song> createSong(@RequestBody Song song) {
-		return new ResponseEntity<Song>(this.service.create(song), HttpStatus.CREATED);
+	public ResponseEntity<Song> createSong(@RequestBody Song songCreate) {
+		return new ResponseEntity<Song>(this.service.create(songCreate), HttpStatus.CREATED);
 	}
 
 	// READ
@@ -45,7 +46,7 @@ public class SongController {
 	// READ SINGLE
 
 	@GetMapping("/getOne/{id}")
-	public ResponseEntity<Song> getSongById(@PathVariable Long id) {
+	public ResponseEntity<Song> getSongById(@PathVariable Long id) throws SongNotFoundException {
 		return ResponseEntity.ok(this.service.getById(id));
 	}
 
@@ -74,8 +75,8 @@ public class SongController {
 	// UPDATE
 	
 	@PutMapping("/update/{id}")
-	public ResponseEntity<Song> updateSongById(@RequestBody Song song, @PathVariable Long id){
-		return new ResponseEntity<Song>(this.service.update(id, song),HttpStatus.NO_CONTENT);
+	public ResponseEntity<Song> updateSongById(@RequestBody Song songUpdate, @PathVariable Long id) throws SongNotFoundException{
+		return new ResponseEntity<Song>(this.service.update(id, songUpdate),HttpStatus.NO_CONTENT);
 	}
 	
 	//DELETE

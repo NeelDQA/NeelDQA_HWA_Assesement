@@ -52,11 +52,11 @@ const populateTable = (table, data) => {
         editButton.setAttribute("data-bs-toggle", "modal");
         editButton.setAttribute("data-bs-target", "#updateModal");
         editButton.onclick = () => { populateModal(element) }
-
-
-        // editButton.setAttribute("onclick","console.log(element.id)");
         editButton.innerText = "Update";
-        // editButton.addEventListener("click", update());
+
+
+        
+        
 
         editCell.appendChild(editButton);
 
@@ -129,16 +129,8 @@ const create = () => {
         then((response) => {
             console.log(response);
           
-            createdAlert.setAttribute("class","alert alert-success");
-            createdAlert.innerHTML = "Song added!";
             window.location.reload();
-            // setTimeout(()=>{
-            //     createdAlert.removeAttribute("class");
-            //     createdAlert.innerHTML ="";
-            //     window.location.reload();
-
-            // },2000)
-
+        
         }).
         catch((err) => console.log(err));
 }

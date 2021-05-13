@@ -17,6 +17,7 @@ const yearHolder = document.querySelector("#modalYear");
 const genreHolder = document.querySelector("#modalGenre");
 const keyHolder = document.querySelector("#modalKey");
 
+// const createdAlert = document.querySelector("#created");
 
 
 const readAll = () => {
@@ -51,11 +52,11 @@ const populateTable = (table, data) => {
         editButton.setAttribute("data-bs-toggle", "modal");
         editButton.setAttribute("data-bs-target", "#updateModal");
         editButton.onclick = () => { populateModal(element) }
-  
-        editButton.innerText = "Edit";
 
-     
-      
+
+        // editButton.setAttribute("onclick","console.log(element.id)");
+        editButton.innerText = "Update";
+        // editButton.addEventListener("click", update());
 
         editCell.appendChild(editButton);
 
@@ -127,22 +128,32 @@ const create = () => {
         post("http://localhost:9092/create", songObj).
         then((response) => {
             console.log(response);
-             window.location.reload();
+          
+            createdAlert.setAttribute("class","alert alert-success");
+            createdAlert.innerHTML = "Song added!";
+            window.location.reload();
+            // setTimeout(()=>{
+            //     createdAlert.removeAttribute("class");
+            //     createdAlert.innerHTML ="";
+            //     window.location.reload();
+
+            // },2000)
+
         }).
         catch((err) => console.log(err));
 }
 
 
-const update = () => {
+const update = () =>{
 
     const MODAL_ID_VALUE = idHolder.value;
     const MODAL_TITLE_VALUE = titleHolder.value;
-    const MODAL_ARTIST_VALUE = artistHolder.value;
+    const MODAL_ARTIST_VALUE =artistHolder.value;
     const MODAL_LABEL_VALUE = labelHolder.value;
     const MODAL_YEAR_VALUE = yearHolder.value;
     const MODAL_GENRE_VALUE = genreHolder.value;
     const MODAL_KEY_VALUE = keyHolder.value;
-
+   
     let songObj = {
         songName: MODAL_TITLE_VALUE,
         artistName: MODAL_ARTIST_VALUE,
@@ -153,14 +164,14 @@ const update = () => {
     }
 
     axios.
-        put(`http://localhost:9092/update/${MODAL_ID_VALUE}`, songObj)
-        .then((response) => {
-            console.log(response);
-            window.location.reload();
-        })
-        .catch((err) => {
-            console.log(err);
-        })
+    put(`http://localhost:9092/update/${MODAL_ID_VALUE}`,songObj)
+    .then((response) =>{
+        console.log(response);
+        window.location.reload();
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
 
 
 }

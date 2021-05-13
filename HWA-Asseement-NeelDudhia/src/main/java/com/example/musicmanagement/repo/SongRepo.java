@@ -1,5 +1,7 @@
 package com.example.musicmanagement.repo;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -9,8 +11,8 @@ public interface SongRepo extends JpaRepository<Song, Long> {
 
 	Song findBysongName(String songName);
 
-	Song findByartistName(String artistName);
+	List<Song> findByartistName(String artistName);
 
-	Song findBygenre(String genre);
+	List<Song>findBygenre(String genre);
 
 }

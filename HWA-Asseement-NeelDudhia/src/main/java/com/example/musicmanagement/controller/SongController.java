@@ -50,28 +50,8 @@ public class SongController {
 		return ResponseEntity.ok(this.service.getById(id));
 	}
 
-	// READ BY SONG NAME
+	
 
-	@GetMapping("/getBySongName/{songName}")
-	public ResponseEntity<Song> getSongBySongName(@PathVariable("songName") String songName) {
-		return ResponseEntity.ok(this.service.getSongBySongName(songName));
-
-	}
-	
-	//READ BY ARTIST NAME
-	
-	@GetMapping("/getByArtistName/{artistName}")
-	public ResponseEntity<List<Song>> getSongByArtistName(@PathVariable("artistName") String artistName){
-		return ResponseEntity.ok(this.service.getSongByArtistName(artistName));
-	}
-	
-	//READ BY GENRE
-	
-	@GetMapping("/getByGenre/{genre}")
-	public ResponseEntity<List<Song>> getSongByGenre(@PathVariable("genre") String genre){
-		return ResponseEntity.ok(this.service.getSongByGenre(genre));
-	}
-	
 	// UPDATE
 	
 	@PutMapping("/update/{id}")

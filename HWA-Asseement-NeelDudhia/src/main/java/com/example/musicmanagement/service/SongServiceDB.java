@@ -74,25 +74,7 @@ public class SongServiceDB {
 
 	}
 
-	// READ BY ARTIST NAME
 
-	public List<Song> getSongByArtistName(String artistName) {
-		return this.repo.findByartistName(artistName);
-	}
-
-	// READ BY SONG NAME
-
-	public Song getSongBySongName(String songName) {
-		return this.repo.findBysongName(songName);
-		
-	}
-	
-	//READ BY GENRE
-	
-	public List<Song> getSongByGenre(String genre) {
-		return this.repo.findBygenre(genre);
-		
-	}
 	
 
 }

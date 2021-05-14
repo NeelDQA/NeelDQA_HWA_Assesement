@@ -17,7 +17,7 @@ const yearHolder = document.querySelector("#modalYear");
 const genreHolder = document.querySelector("#modalGenre");
 const keyHolder = document.querySelector("#modalKey");
 
-// const createdAlert = document.querySelector("#created");
+
 
 
 const readAll = () => {

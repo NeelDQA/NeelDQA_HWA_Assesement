@@ -102,75 +102,11 @@ public class SongControllerIntegrationTest {
 
 	}
 
-	@Test
-	void testReadBySongName() throws Exception {
 
-		final String songName = "Teenage Birdsong";
 
-//		String songNameAsJSON = this.mapper.writeValueAsString(songName);
 
-		RequestBuilder mockRequest = get("/getBySongName/" + songName);
 
-		Song expSong = new Song(1L, "Teenage Birdsong", "Four Tet", "Text Records", "Am", "House", 2019L);
 
-		String expSongAsJSON = this.mapper.writeValueAsString(expSong);
-
-		ResultMatcher matchStatus = status().isOk();
-
-		ResultMatcher matchBody = content().json(expSongAsJSON);
-
-		this.mockMVC.perform(mockRequest).andExpect(matchStatus).andExpect(matchBody);
-
-	}
-
-	@Test
-	void testReadByArtistName() throws Exception {
-
-		final String artistName = "Four Tet";
-
-		RequestBuilder mockRequest = get("/getByArtistName/" + artistName);
-
-		Song expSong1 = new Song(1L, "Teenage Birdsong", "Four Tet", "Text Records", "Am", "House", 2019L);
-
-		List<Song> arraySong = new ArrayList<Song>();
-
-		arraySong.add(expSong1);
-
-		String expSongAsJSON = this.mapper.writeValueAsString(arraySong);
-
-		ResultMatcher matchStatus = status().isOk();
-
-		ResultMatcher matchBody = content().json(expSongAsJSON);
-
-		this.mockMVC.perform(mockRequest).andExpect(matchStatus).andExpect(matchBody);
-	}
-
-	@Test
-	void testReadByGenre() throws Exception {
-
-		final String genre = "House";
-
-		RequestBuilder mockRequest = get("/getByGenre/" + genre);
-
-		Song expSong1 = new Song(1L, "Teenage Birdsong", "Four Tet", "Text Records", "Am", "House", 2019L);
-
-		Song expSong2 = new Song(2L, "Dust", "Brame & Hamo", "Feel My Bicep", "Fm", "House", 2019L);
-
-		List<Song> arraySong = new ArrayList<Song>();
-
-		arraySong.add(expSong1);
-
-		arraySong.add(expSong2);
-
-		String expSongAsJSON = this.mapper.writeValueAsString(arraySong);
-
-		ResultMatcher matchStatus = status().isOk();
-
-		ResultMatcher matchBody = content().json(expSongAsJSON);
-
-		this.mockMVC.perform(mockRequest).andExpect(matchStatus).andExpect(matchBody);
-
-	}
 
 	@Test
 	void testUpdate() throws Exception {

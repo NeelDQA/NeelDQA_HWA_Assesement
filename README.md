@@ -14,7 +14,7 @@ The web app was responsive and functions well on computers and handheld devices.
 5. If you have an IDE, you can import the project or follow links below
 6. Download Spring 
 7. Download MySQL
-8. Run the file by typing java -jarims-0.01-jar-with-dependencies.jar
+8. Run the file by typing java -jar HWA-Assesment-NeelDudhia-0.0.1-SNAPSHOT.jar
 9. Go onto a web browser and go to http://localhost:9092 to view the application. 
 
 
